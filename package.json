@@ -1,0 +1,24 @@
+{
+  "name": "zation-core-errors",
+  "version": "1.0.0",
+  "description": "Error types for use throughout Zation-Core",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZationServer/zation-core-errors.git"
+  },
+  "author": {
+    "name": "Luca Scarignella",
+    "email": "lucacode1@gmail.com",
+    "url": "https://luca.scaringella.de"
+  },
+  "keywords": [
+    "errors",
+    "zation-core",
+    "zation"
+  ],
+  "dependencies": {}
+}

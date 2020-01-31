@@ -1,6 +1,6 @@
-var decycle = require('./decycle');
+const decycle = require('./decycle');
 
-var isStrict = (function () { return !this; })();
+const isStrict = (function () { return !this; })();
 
 function AuthTokenExpiredError(message, expiry) {
   this.name = 'AuthTokenExpiredError';
@@ -287,7 +287,7 @@ module.exports.socketProtocolIgnoreStatuses = {
 };
 
 // Properties related to error domains cannot be serialized.
-var unserializableErrorProperties = {
+const unserializableErrorProperties = {
   domain: 1,
   domainEmitter: 1,
   domainThrown: 1
@@ -296,7 +296,7 @@ var unserializableErrorProperties = {
 // Convert an error into a JSON-compatible type which can later be hydrated
 // back to its *original* form.
 module.exports.dehydrateError = function dehydrateError(error, includeStackTrace) {
-  var dehydratedError;
+  let dehydratedError;
 
   if (error && typeof error === 'object') {
     dehydratedError = {
@@ -305,7 +305,7 @@ module.exports.dehydrateError = function dehydrateError(error, includeStackTrace
     if (includeStackTrace) {
       dehydratedError.stack = error.stack;
     }
-    for (var i in error) {
+    for (const i in error) {
       if (!unserializableErrorProperties[i]) {
         dehydratedError[i] = error[i];
       }
@@ -321,11 +321,11 @@ module.exports.dehydrateError = function dehydrateError(error, includeStackTrace
 
 // Convert a dehydrated error back to its *original* form.
 module.exports.hydrateError = function hydrateError(error) {
-  var hydratedError = null;
+  let hydratedError = null;
   if (error != null) {
     if (typeof error === 'object') {
       hydratedError = new Error(error.message);
-      for (var i in error) {
+      for (const i in error) {
         if (error.hasOwnProperty(i)) {
           hydratedError[i] = error[i];
         }

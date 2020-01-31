@@ -1,5 +1,3 @@
-// Based on https://github.com/dscape/cycle/blob/master/cycle.js
-
 module.exports = function decycle(object) {
 // Make a deep copy of an object or array, assuring that there is at most
 // one instance of each object or array in the resulting structure. The
@@ -8,7 +6,7 @@ module.exports = function decycle(object) {
 //      {$ref: PATH}
 // where the PATH is a JSONPath string that locates the first occurance.
 // So,
-//      var a = [];
+//      const a = [];
 //      a[0] = a;
 //      return JSON.stringify(JSON.decycle(a));
 // produces the string '[{"$ref":"$"}]'.
@@ -17,14 +15,14 @@ module.exports = function decycle(object) {
 // the object or array. [NUMBER] or [STRING] indicates a child member or
 // property.
 
-    var objects = [],   // Keep a reference to each unique object or array
+    const objects = [],   // Keep a reference to each unique object or array
         paths = [];     // Keep the path to each unique object or array
 
     return (function derez(value, path) {
 
 // The derez recurses through the object, producing the deep copy.
 
-        var i,          // The loop counter
+        let i,          // The loop counter
             name,       // Property name
             nu;         // The new object or array
 
@@ -32,11 +30,11 @@ module.exports = function decycle(object) {
 // one of the weird builtin objects.
 
         if (typeof value === 'object' && value !== null &&
-                !(value instanceof Boolean) &&
-                !(value instanceof Date)    &&
-                !(value instanceof Number)  &&
-                !(value instanceof RegExp)  &&
-                !(value instanceof String)) {
+            !(value instanceof Boolean) &&
+            !(value instanceof Date) &&
+            !(value instanceof Number) &&
+            !(value instanceof RegExp) &&
+            !(value instanceof String)) {
 
 // If the value is an object or array, look to see if we have already
 // encountered it. If so, return a $ref/path object. This is a hard way,

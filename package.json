@@ -2,8 +2,12 @@
   "name": "zation-core-errors",
   "version": "1.0.0",
   "description": "Error types for use throughout Zation-Core",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "npm run compile",
+    "compile": "rm -rf dist/ && tsc -p ./",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +24,7 @@
     "zation-core",
     "zation"
   ],
-  "dependencies": {}
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
 }

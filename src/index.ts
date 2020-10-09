@@ -188,3 +188,5 @@ export const socketProtocolErrorStatuses = {
   4006: 'Failed to bind socket to message broker',
   4007: 'Client connection establishment timed out',
   4008: 'Server rejected handshake from client',
+  4009: 'Server socket handshake failed'
+};

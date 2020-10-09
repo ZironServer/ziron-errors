@@ -1,6 +1,6 @@
 {
   "name": "zation-core-errors",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Error types for use throughout Zation-Core",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

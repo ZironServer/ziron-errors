@@ -6,6 +6,7 @@ Copyright(c) Luca Scaringella
 
 export class AuthTokenExpiredError extends Error {
   public readonly expiry: number;
+  public readonly badAuthToken: boolean = true;
 
   constructor(message: string, expiry: number) {
     super(message);
@@ -15,6 +16,8 @@ export class AuthTokenExpiredError extends Error {
 }
 
 export class AuthTokenInvalidError extends Error {
+  public readonly badAuthToken: boolean = true;
+
   constructor(message: string) {
     super(message);
     this.name = 'AuthTokenInvalidError';
@@ -23,6 +26,7 @@ export class AuthTokenInvalidError extends Error {
 
 export class AuthTokenNotBeforeError extends Error {
   public readonly date;
+  public readonly badAuthToken: boolean = false;
 
   constructor(message: string, date) {
     super(message);
@@ -33,6 +37,8 @@ export class AuthTokenNotBeforeError extends Error {
 
 // For any other auth token error.
 export class AuthTokenError extends Error {
+  public readonly badAuthToken: boolean = true;
+
   constructor(message: string) {
     super(message);
     this.name = 'AuthTokenError';

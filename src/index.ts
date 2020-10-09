@@ -5,10 +5,10 @@ Copyright(c) Luca Scaringella
  */
 
 export class AuthTokenExpiredError extends Error {
-  public readonly expiry: number;
+  public readonly expiry: Date;
   public readonly badAuthToken: boolean = true;
 
-  constructor(message: string, expiry: number) {
+  constructor(message: string, expiry: Date) {
     super(message);
     this.name = 'AuthTokenExpiredError';
     this.expiry = expiry;
@@ -25,10 +25,10 @@ export class AuthTokenInvalidError extends Error {
 }
 
 export class AuthTokenNotBeforeError extends Error {
-  public readonly date;
+  public readonly date: Date;
   public readonly badAuthToken: boolean = false;
 
-  constructor(message: string, date) {
+  constructor(message: string, date: Date) {
     super(message);
     this.name = 'AuthTokenNotBeforeError';
     this.date = date;

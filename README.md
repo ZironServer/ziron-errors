@@ -1,2 +1,2 @@
-# zation-core-errors
-Error types for Zation-Core
+# ziron-errors
+Error types for Ziron

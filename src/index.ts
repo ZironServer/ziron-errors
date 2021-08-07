@@ -163,6 +163,13 @@ export class UnknownError extends Error {
   }
 }
 
+export class NamedError extends Error {
+  constructor(name: string, message: string = "") {
+    super(message);
+    this.name = name;
+  }
+}
+
 export const socketProtocolIgnoreStatuses = {
   1000: 'Socket closed normally',
   1001: 'Socket hung up'

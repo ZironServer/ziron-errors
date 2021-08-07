@@ -163,12 +163,12 @@ export class UnknownError extends Error {
   }
 }
 
-export class NoMatchingPublishTargetError extends Error {
+export class NoMatchingBrokerClientError extends Error {
   public readonly channel: string;
 
   constructor(channel: string) {
-    super("No matching publish target for channel found");
-    this.name = 'NoMatchingPublishTargetError';
+    super("No matching broker client found");
+    this.name = 'NoMatchingBrokerClientError';
     this.channel = channel;
   }
 }

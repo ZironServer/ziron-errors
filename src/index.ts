@@ -163,6 +163,16 @@ export class UnknownError extends Error {
   }
 }
 
+export class NoMatchingPublishTargetError extends Error {
+  public readonly channel: string;
+
+  constructor(channel: string) {
+    super("No matching publish target for channel found");
+    this.name = 'NoMatchingPublishTargetError';
+    this.channel = channel;
+  }
+}
+
 export class NamedError extends Error {
   constructor(name: string, message: string = "") {
     super(message);
